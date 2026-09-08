@@ -1,29 +1,15 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { EB_Garamond, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 
-const ebGaramond = EB_Garamond({
-  subsets: ['latin'],
-  variable: '--font-eb-garamond',
-  weight: ['400', '500', '600'],
-})
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  variable: '--font-plex-mono',
-  weight: ['400', '500'],
-})
-
 export const metadata: Metadata = {
-  title: 'Budarina — Roofs of the World',
+  title: '凤冠字帘 — Chinese Phoenix Crown',
   description:
-    'An interactive travel journal. Stories hang beneath ancient roofs like curtains of text — brush through them.',
+    '一件可以"拨动"的数字文物——七顶中国凤冠悬于午夜蓝的夜幕中，冠下垂落由汉字织成的珠帘，指尖拂过，字缕如流苏般摇曳作响。',
   generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#e3d7ba',
+  themeColor: '#1a1a2e',
 }
 
 export default function RootLayout({
@@ -32,11 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${ebGaramond.variable} ${plexMono.variable}`}>
-      <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+    <html lang="zh" className="bg-background">
+      <body className="antialiased">{children}</body>
     </html>
   )
 }
